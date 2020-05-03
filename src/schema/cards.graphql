@@ -1,0 +1,97 @@
+type Query{
+#    orderedDeck: Deck
+#    chokdiSet(deckId: Int): ChokdiDeck
+    board(boardId: Int): Board
+#    user(userId: Int): User
+}
+
+#type Subscription{
+#    updatedDeck(boardId: Int!): [[Card!]]
+#}
+
+type Mutation{
+#    updateCardForChokdi(input: UpdateCardForChokdi): [[Card]]
+    createBoard(input:CreateBoardInput): Board
+}
+
+#input UpdateCardForChokdi{
+#    deckId: Int!
+#    userId: Int!
+#    cardId: String!
+#}
+#
+#input CreateUserInput{
+#    name: String!
+#}
+#
+#type Deck{
+#    id: Int
+#    deck:[Card]
+#}
+#
+#type ChokdiDeck{
+#    id: Int
+#    deck:[[Card!]]
+#}
+#
+type Board{
+    id: Int!
+    users:[User!]
+}
+#
+type User{
+    id:Int!
+    name:String!
+}
+#
+#enum Suit {
+#    SPADES ,
+#    HEARTS,
+#    CLUBS,
+#    DIAMONDS
+#}
+#
+#type Card {
+#    letter: Letter,
+#    suit: SuitMeta
+#    cardId: String!
+#}
+#
+#type SuitMeta {
+#    design: SuitDesign,
+#    color: SuitColor,
+#    suit: Suit
+#}
+#
+#enum Letter {
+#    ONE,
+#    TWO,
+#    THREE,
+#    FOUR,
+#    FIVE,
+#    SIX,
+#    SEVEN,
+#    EIGHT,
+#    NINE,
+#    TEN,
+#    JACK,
+#    QUEEN,
+#    KING
+#}
+#
+#enum SuitColor {
+#    RED,
+#    BLACK
+#}
+#
+#enum SuitDesign {
+#    SPADES,
+#    HEARTS,
+#    CLUBS,
+#    DIAMONDS
+#}
+#
+input CreateBoardInput {
+    userId: Int!
+    userName: String!
+}

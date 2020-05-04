@@ -7,7 +7,8 @@ export enum Suit {
 
 export interface CardItem {
     letter: Letter,
-    suit: SuitMeta
+    suit: SuitMeta,
+    cardId: string
 }
 
 export interface SuitMeta {

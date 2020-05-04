@@ -1,9 +1,14 @@
-import {MongoClient} from "mongodb";
+import mongoose from "mongoose";
 
-const uri = "mongodb+srv://radUser:radPassword@chokdi-vkqpw.mongodb.net/test?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-    const collection = client.db("test").collection("devices");
-    // perform actions on the collection object
-    client.close();
-});
+export async function connectMongo() {
+    const mongo_uri = 'mongodb://localhost:27017/cards';
+    await mongoose.connect(mongo_uri, {useNewUrlParser: true, useUnifiedTopology: true});
+}
+
+export async function disConnectMongo() {
+    await mongoose.connection.close();
+}
+
+export  function mongooseIsConnected() {
+    return mongoose.connection.readyState !== 0;
+}

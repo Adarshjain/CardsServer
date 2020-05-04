@@ -22,10 +22,10 @@ export function getDesignDeck(suit: Suit): CardItem[] {
 }
 
 export function getCardItem(letter: Letter, suit: Suit): CardItem {
-    return {letter, suit: designs[suit]}
+    return {letter, suit: designs[suit], cardId: letter + designs[suit].design}
 }
 
-export function getRandom(count = 52): CardItem[] {
+export function getRandomCardDeck(count = 52): CardItem[] {
     let deck: CardItem[] = [];
     let usedIndex: number[] = [];
     let loopCount = 0;

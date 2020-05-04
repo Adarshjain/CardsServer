@@ -30,12 +30,11 @@ export async function newBoard(user) {
     }
     let randomCards = getRandomCardDeck();
     let deck = [
-        sortCards(randomCards.slice(0, 2)),
-        // sortCards(randomCards.slice(0, 13)),
-        // sortCards(randomCards.slice(13, 26)),
-        // sortCards(randomCards.slice(26, 39)),
-        // sortCards(randomCards.slice(39, 52)),
-        // []
+        sortCards(randomCards.slice(0, 13)),
+        sortCards(randomCards.slice(13, 26)),
+        sortCards(randomCards.slice(26, 39)),
+        sortCards(randomCards.slice(39, 52)),
+        []
     ]
 
     let board = await Board.create({
